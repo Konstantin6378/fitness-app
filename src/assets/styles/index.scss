@@ -6,7 +6,8 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	&:before, &:after
+	&:before, 
+	&:after
   {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -15,6 +16,9 @@
 	&:focus{
 		outline: none;
   }
+
+	font-family: $default-font;
+	letter-spacing: 0.5px;
 }
 *::-webkit-input-placeholder{
   font-family: $default-font;
@@ -61,11 +65,10 @@ body{
   padding: 0;
   margin: 0;
   color: #fff;
-	font-size: 18px;
+	font-size: 22px;
 	min-width: 320px;
 	position: relative;
 	line-height: 1.65;
-	font-family: $default-font;
 	overflow-x: hidden;
 	opacity: 1;
 }
@@ -99,7 +102,7 @@ img {
 }
 
 .wrapper-inner-page {
-	padding: 40px 30px;
+	padding: 30px 30px;
 	text-align: center;
 	max-width: 560px;
 	width: 100%;

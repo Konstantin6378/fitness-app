@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 
-export const useOnClickOutside = (isInitialValue) => {
+export const useOnClickOutside = isInitialValue => {
   const [isShow, setIsShow] = useState(isInitialValue)
-
   const ref = useRef(null)
 
   const handleClickOutside = event => {
@@ -13,6 +12,7 @@ export const useOnClickOutside = (isInitialValue) => {
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true)
+
     return () => {
       document.removeEventListener('click', handleClickOutside, true)
     }
