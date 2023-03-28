@@ -8,7 +8,7 @@ import Hamburger from '../hamburger/Hamburger'
 
 import styles from './Header.module.scss'
 
-const Header = ({ backLink = '' }) => {
+const Header = ({ backLink = '/' }) => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
@@ -16,25 +16,29 @@ const Header = ({ backLink = '' }) => {
 
   return (
     <header className={styles.header}>
-      {pathname === '/' && !isAuth ? (
-        <button
-          onClick={() => {
-            navigate(isAuth ? backLink : '/auth')
-          }}
-        >
-          <IoMdArrowBack />
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            navigate('/profile')
-          }}
-        >
-          {isAuth && <SlUser />}
-        </button>
-      )
-      }
-      {isAuth && < Hamburger />}
+      {isAuth && (
+        <>
+          {pathname === '/' && isAuth ? (
+            <button
+              onClick={() => {
+                navigate('/profile')
+              }}
+            >
+              <SlUser />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                navigate(isAuth ? backLink : '/auth')
+              }}
+            >
+              <IoMdArrowBack />
+            </button>
+          )
+          }
+          < Hamburger />
+        </>
+      )}
     </header >
   )
 }
