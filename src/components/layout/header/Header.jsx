@@ -9,38 +9,37 @@ import Hamburger from '../hamburger/Hamburger'
 import styles from './Header.module.scss'
 
 const Header = ({ backLink = '/' }) => {
-  const { pathname } = useLocation()
-  const navigate = useNavigate()
+	const { pathname } = useLocation()
+	const navigate = useNavigate()
 
-  const { isAuth } = useAuth()
+	const { isAuth } = useAuth()
 
-  return (
-    <header className={styles.header}>
-      {isAuth && (
-        <>
-          {pathname === '/' && isAuth ? (
-            <button
-              onClick={() => {
-                navigate('/profile')
-              }}
-            >
-              <SlUser />
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                navigate(isAuth ? backLink : '/auth')
-              }}
-            >
-              <IoMdArrowBack />
-            </button>
-          )
-          }
-          < Hamburger />
-        </>
-      )}
-    </header >
-  )
+	return (
+		<header className={styles.header}>
+			{isAuth && (
+				<>
+					{pathname === '/' && isAuth ? (
+						<button
+							onClick={() => {
+								navigate('/profile')
+							}}
+						>
+							<SlUser fill='#fff' fontSize={25} />
+						</button>
+					) : (
+						<button
+							onClick={() => {
+								navigate(isAuth ? backLink : '/auth')
+							}}
+						>
+							<IoMdArrowBack fill='#fff' fontSize={29} />
+						</button>
+					)}
+					<Hamburger />
+				</>
+			)}
+		</header>
+	)
 }
 
 export default Header

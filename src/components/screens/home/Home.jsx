@@ -3,23 +3,20 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../../ui/button/Button'
 
 import Layout from '../../layout/Layout'
-
-import styles from './Home.module.scss'
 import Statistics from '../profile/statistics/Statistics'
 
-function Home() {
+import styles from './Home.module.scss'
 
-  const navigate = useNavigate()
-  return (
-    <Layout bgImage='/images/home-bg.jpg'>
-      <Button clickHandler={() => navigate('/new-workout')}>
-        New
-      </Button>
-      <h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
-      {/* TODO: Counters */}
-      <Statistics />
-    </Layout>
-  )
+function Home() {
+	const navigate = useNavigate()
+
+	return (
+		<Layout bgImage='/images/home-bg.jpg'>
+			<Button clickHandler={() => navigate('/new-workout')}>New</Button>
+			<h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
+			<Statistics />
+		</Layout>
+	)
 }
 
 export default Home

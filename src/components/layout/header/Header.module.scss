@@ -1,18 +1,14 @@
 @import 'src/assets/styles/variables';
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  >button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-    >svg {
-      font-size: 29px;
-      fill: #fff;
-    }
-  }
+	> button {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
 }

@@ -1,1 +1,1 @@
-export const TOKEN = 'fit'
+export const TOKEN = 'red'
