@@ -1,15 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Sofia+Sans:regular,500,600,700,800,900);
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-$accent: #FF6E50;
+$accent: #b53471;
 $white: #f1e8e8;
 $black: darken($accent, 38%);
-$hard-dark-accent: darken($accent, 30%);
 $dark-accent: darken($accent, 18%);
-$custom-accent: darken($accent, 15%);
+$hard-dark-accent: darken($accent, 20%);
 
-// https: //dribbble.com/shots/17358553-Sportly-Running-Record-Stats-Activity-Log-and-Challenge
+/* https://dribbble.com/shots/17358553-Sportly-Running-Record-Stats-Activity-Log-and-Challenge */
 
-$bx-accent: 0 4px 4px 4px rgba($accent, 0.25);
+$bx-accent: 0 4px 4px rgba($accent, 0.25);
 $bx-16: 0 3px 6px rgba(0, 0, 0, 0.16);
 
 $default-font: 'Sofia Sans', sans-serif;
