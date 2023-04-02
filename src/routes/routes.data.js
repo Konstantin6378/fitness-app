@@ -3,8 +3,9 @@ import Home from '../components/screens/home/Home'
 import NewExercise from '../components/screens/new-exercise/NewExercise'
 import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import Profile from '../components/screens/profile/Profile'
-import ListWorkouts from '../components/screens/workout/ListWorkouts'
-import Workout from '../components/screens/workout/Workout'
+import ListWorkouts from '../components/screens/workouts/list/ListWorkouts'
+import Workout from '../components/screens/workouts/detail/Workout'
+import ExerciseLog from '../components/screens/exercise-log/ExerciseLog'
 
 export const routes = [
 	{
@@ -41,11 +42,10 @@ export const routes = [
 		path: '/workouts',
 		component: ListWorkouts,
 		isAuth: true
-	}
-	/*
+	},
 	{
 		path: '/exercise/:id',
-		component: SingleExercise,
+		component: ExerciseLog,
 		isAuth: true,
-	}, */
+	},
 ]
