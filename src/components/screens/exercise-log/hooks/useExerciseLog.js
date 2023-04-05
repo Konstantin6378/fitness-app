@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import ExerciseLogService from '../../../../services/exercise/exercise-log.service'
-import { useState } from 'react'
+
 import { useUpdateLogTime } from './useUpdateLogTime'
 
 export const useExerciseLog = () => {
 	const { id } = useParams()
-
 
 	const [times, setTimes] = useState([])
 
@@ -22,19 +22,17 @@ export const useExerciseLog = () => {
 		}
 	})
 
-	const { errorChange, updateTime } = useUpdateLogTime()
-
+	const { error, updateTime } = useUpdateLogTime(exerciseLog?.times)
 
 	const onChangeState = (timeId, key, value) => {
 		const newTimes = times.map(time => {
 			if (time.id === timeId) {
-				return {
-					...time,
-					[key]: value
-				}
+				return { ...time, [key]: value }
 			}
+
 			return time
 		})
+
 		setTimes(newTimes)
 	}
 
@@ -49,26 +47,23 @@ export const useExerciseLog = () => {
 
 	const toggleTime = (timeId, isCompleted) => {
 		const time = getTime(timeId)
-		updateTime(
-			{
-				timeId,
-				body: {
-					isCompleted,
-					repeat: +time.repeat,
-					weight: +time.weight
-				}
-			})
+		updateTime({
+			timeId,
+			body: {
+				isCompleted,
+				repeat: +time.repeat,
+				weight: +time.weight
+			}
+		})
 	}
-
-
 
 	return {
 		exerciseLog,
 		isSuccess,
 		isLoading,
 		toggleTime,
-		getState,
-		errorChange,
+		error,
 		onChangeState,
+		getState
 	}
 }

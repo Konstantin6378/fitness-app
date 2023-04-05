@@ -2,7 +2,7 @@ import cn from 'clsx'
 
 import styles from '../ExerciseLog.module.scss'
 
-const TableRow = ({ item, onChangeState, toggleTime, getState }) => {
+const TableRow = ({ item, getState, onChangeState, toggleTime }) => {
 	return (
 		<div
 			className={cn(styles.row, {

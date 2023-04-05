@@ -1,24 +1,22 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import ExerciseLogService from "../../../../services/exercise/exercise-log.service"
-import { useNavigate, useParams } from "react-router-dom"
+import { useMutation } from '@tanstack/react-query'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import ExerciseLogService from '../../../../services/exercise/exercise-log.service'
 
 export const useCompleteLog = () => {
+	const { id } = useParams()
 
-  const { id } = useParams()
+	const navigate = useNavigate()
 
-  const queryClient = useQueryClient()
+	const { mutate, error: errorCompleted } = useMutation(
+		['complete log'],
+		body => ExerciseLogService.complete(id, body),
+		{
+			onSuccess: ({ data }) => {
+				navigate(`/workout/${data.workoutLogId}`)
+			}
+		}
+	)
 
-  const navigate = useNavigate()
-
-  const { mutate, error: errorCompleted } = useMutation(
-    ['complete log '], body =>
-    ExerciseLogService.complete(id, body), {
-    onSuccess: ({ data }) => {
-      navigate(`/workout/${data.workoutLogId}`)
-    }
-  })
-  return {
-    completeLog: mutate,
-    errorCompleted
-  }
+	return { completeLog: mutate, errorCompleted }
 }

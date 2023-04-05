@@ -7,7 +7,7 @@ const TableHeader = () => {
 				<span>Previous</span>
 			</div>
 			<div>
-				<span>Weight & Repeat </span>
+				<span>Weight & Repeat</span>
 			</div>
 			<div>
 				<span>Completed</span>
